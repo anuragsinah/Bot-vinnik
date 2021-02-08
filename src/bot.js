@@ -72,20 +72,20 @@ function isValidMove(move){
 
 function sendMessageWithBoard(message,messageText){
   imageGenerator.loadFEN(chess.fen())
-  imageGenerator.generatePNG('chess.png')
-  setTimeout(() => { images("puzzle.png")                     //Load image from file
+  imageGenerator.generatePNG('../chess.png')
+  setTimeout(() => { images("../puzzle.png")                     //Load image from file
                                           //加载图像文件
       //.size(520)                          //Geometric scaling the image to 400 pixels width
                                           //等比缩放图像到400像素宽
-      .draw(images("chess.png"), 29, 29)   //Drawn logo at coordinates (10,10)
+      .draw(images("../chess.png"), 29, 29)   //Drawn logo at coordinates (10,10)
                                           //在(10,10)处绘制Logo
-      .save("output.png", {               //Save the image to a file,whih quality 50
+      .save("../output.png", {               //Save the image to a file,whih quality 50
           quality : 100                    //保存图片到文件,图片质量为50
       });
   }, 1000);
   setTimeout(() => { return message.channel.send( messageText, {
         files: [
-            "output.png"
+            "../output.png"
         ]
     });
   }, 1000);
